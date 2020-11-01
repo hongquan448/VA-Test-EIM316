@@ -14,16 +14,16 @@ public class LanguageSelect : MonoBehaviour
 {
     public static Language language;
 
-    public void selectEnglish() {
+    public static void SelectEnglish() {
         language = Language.English;
     }
-    public void selectChinese() {
+    public static void SelectChinese() {
         language = Language.Chinese;
     }
-    public void selectMalay() {
+    public static void SelectMalay() {
         language = Language.Malay;
     }
-    public void selectTamil() {
+    public static void SelectTamil() {
         language = Language.Tamil;
     }
 }
