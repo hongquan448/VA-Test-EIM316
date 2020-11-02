@@ -21,7 +21,8 @@ public class TestResultExport : MonoBehaviour
         Debug.Log(filePath);        
         SaveObject saveObject = new SaveObject {
             dateTime = DateTime.Now.ToString(),
-            score = LogmarScore.score
+            scoreLeft = LogmarScoreLeft.score,
+            scoreRight = LogmarScoreRight.score
         };
         string json = JsonUtility.ToJson(saveObject);
         Debug.Log(json);
@@ -30,6 +31,7 @@ public class TestResultExport : MonoBehaviour
 
     private class SaveObject {
         public string dateTime;
-        public double score;
+        public double scoreLeft;
+        public double scoreRight;
     }
 }

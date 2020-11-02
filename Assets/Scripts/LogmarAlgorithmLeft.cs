@@ -4,33 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LogmarScore : MonoBehaviour
+public class LogmarScoreLeft : MonoBehaviour
 {
     public static double score;
 }
 
-public class LogmarAlgorithm : MonoBehaviour
+public class LogmarAlgorithmLeft : MonoBehaviour
 {
-    public const int TOTAL_LETTERS = 55;
-    public const int LETTERS_PER_ROW = 5;
-    public const int TOTAL_LETTER_ROW_NUMBER = 11;
-    public const int STARTING_LETTER_COL = 5;
-    public const int STARTING_LETTER_ROW = 1;
-    
-    public static readonly char[,] logmarChart = new char[TOTAL_LETTER_ROW_NUMBER,LETTERS_PER_ROW]
-    {
-        {'D', 'S', 'R', 'K', 'N'},
-        {'K', 'K', 'Z', 'O', 'H'},
-        {'O', 'N', 'R', 'K', 'D'},
-        {'K', 'Z', 'V', 'D', 'C'},
-        {'V', 'S', 'H', 'Z', 'O'},
-        {'H', 'D', 'K', 'C', 'R'},
-        {'C', 'S', 'R', 'H', 'N'},
-        {'S', 'V', 'Z', 'D', 'K'},
-        {'N', 'C', 'V', 'O', 'Z'},
-        {'R', 'H', 'S', 'D', 'V'},
-        {'S', 'N', 'R', 'O', 'H'}
-    };
     
     public LetterArrowDisplay letterArrowDisplay;
     public InputField inputField;
@@ -44,8 +24,8 @@ public class LogmarAlgorithm : MonoBehaviour
 
     public void Awake() {
         //Test starts with the last letter of the 1st row
-        letterRow = STARTING_LETTER_ROW - 1;
-        letterCol = STARTING_LETTER_COL - 1;
+        letterRow = LogmarAlgorithmConstants.STARTING_LETTER_ROW - 1;
+        letterCol = LogmarAlgorithmConstants.STARTING_LETTER_COL - 1;
         isPerfectVision = true;
         totalErrors = 0;
         correctAnswersCurrentRow = 0;
@@ -147,8 +127,8 @@ public class LogmarAlgorithm : MonoBehaviour
         }
         //If no mistakes have been made, patient will go through 1st stage of test
         if (isPerfectVision == true) {
-            if (isCorrectLetter(letterRow, letterCol, logmarChart, inputLetter)) {              
-                if (letterRow == TOTAL_LETTER_ROW_NUMBER - 1) {
+            if (isCorrectLetter(letterRow, letterCol, LogmarAlgorithmConstants.logmarChartLeft, inputLetter)) {              
+                if (letterRow == LogmarAlgorithmConstants.TOTAL_LETTER_ROW_NUMBER - 1) {
                     endTest();
                 }
                 increaseletterRow();
@@ -164,15 +144,15 @@ public class LogmarAlgorithm : MonoBehaviour
         } 
         // if a mistake has been made, patient will proceed to 2nd stage of test
         else {
-            if (isCorrectLetter(letterRow, letterCol, logmarChart, inputLetter)) {
+            if (isCorrectLetter(letterRow, letterCol, LogmarAlgorithmConstants.logmarChartLeft, inputLetter)) {
                 correctAnswersCurrentRow++;
-                if (letterCol == LETTERS_PER_ROW - 1) {
+                if (letterCol == LogmarAlgorithmConstants.LETTERS_PER_ROW - 1) {
                     //End test if number of correct answers is smaller than 3
                     if (correctAnswersCurrentRow < 3) {
                         endTest();
                     } 
                     //Reset number of totalErrors if the whole row is correct
-                    else if (correctAnswersCurrentRow == LETTERS_PER_ROW) {
+                    else if (correctAnswersCurrentRow == LogmarAlgorithmConstants.LETTERS_PER_ROW) {
                         totalErrors = 0;
                         correctAnswersCurrentRow = 0;
                     } 
@@ -180,7 +160,7 @@ public class LogmarAlgorithm : MonoBehaviour
                     else {
                         correctAnswersCurrentRow = 0;
                     }
-                    if (letterRow == TOTAL_LETTER_ROW_NUMBER - 1) {
+                    if (letterRow == LogmarAlgorithmConstants.TOTAL_LETTER_ROW_NUMBER - 1) {
                         endTest();
                     }
                     increaseletterRow();                    
@@ -188,7 +168,7 @@ public class LogmarAlgorithm : MonoBehaviour
                 increaseletterCol();
             } else {
                 totalErrors++;
-                if (letterCol == LETTERS_PER_ROW - 1) {
+                if (letterCol == LogmarAlgorithmConstants.LETTERS_PER_ROW - 1) {
                     //End test if number of correct answers is smaller than 3 or all letters are finished
                     if (correctAnswersCurrentRow < 3) {
                         endTest();
@@ -198,7 +178,7 @@ public class LogmarAlgorithm : MonoBehaviour
                         correctAnswersCurrentRow = 0;
                     }
                     //End test if all rows are complete
-                    if (letterRow == TOTAL_LETTER_ROW_NUMBER - 1) {
+                    if (letterRow == LogmarAlgorithmConstants.TOTAL_LETTER_ROW_NUMBER - 1) {
                         endTest();
                     }
                     increaseletterRow();                    
@@ -220,7 +200,7 @@ public class LogmarAlgorithm : MonoBehaviour
     }
 
     public void increaseletterRow() {
-        if (letterRow < TOTAL_LETTER_ROW_NUMBER - 1) {
+        if (letterRow < LogmarAlgorithmConstants.TOTAL_LETTER_ROW_NUMBER - 1) {
             letterRow++;
         } else {
             letterRow = 0;
@@ -232,13 +212,13 @@ public class LogmarAlgorithm : MonoBehaviour
         if (letterRow > 0) {
             letterRow--;
         } else {
-            letterRow = TOTAL_LETTER_ROW_NUMBER - 1;
+            letterRow = LogmarAlgorithmConstants.TOTAL_LETTER_ROW_NUMBER - 1;
         }
         letterArrowDisplay.DisplayPreviousRow();
     }
 
     public void increaseletterCol() {
-        if (letterCol < LETTERS_PER_ROW - 1) {
+        if (letterCol < LogmarAlgorithmConstants.LETTERS_PER_ROW - 1) {
             letterCol++;
         } else {
             letterCol = 0;
@@ -246,42 +226,9 @@ public class LogmarAlgorithm : MonoBehaviour
         letterArrowDisplay.DisplayNextArrow();
     }
 
-    public double calculateScore(int baseline, int totalErrors) {
-        double baselineScore = 0;
-        switch (baseline)
-        {
-            case 0:
-            baselineScore = 0.8;
-            break;
-            case 1:
-            baselineScore = 0.7;
-            break;
-            case 2:
-            baselineScore = 0.6;
-            break;
-            case 3:
-            baselineScore = 0.5;
-            break;
-            case 4:
-            baselineScore = 0.4;
-            break;
-            case 5:
-            baselineScore = 0.3;
-            break;
-            case 6:
-            baselineScore = 0.2;
-            break;
-            case 7:
-            baselineScore = 0.1;
-            break;
-        }
-        double score = baselineScore + totalErrors*0.02;
-        return score;
-    }
-
     public void endTest() {
-        LogmarScore.score = calculateScore(letterRow, totalErrors);
-        Debug.Log(LogmarScore.score);
+        LogmarScoreLeft.score = LogmarAlgorithmConstants.CalculateScore(letterRow, totalErrors);
+        Debug.Log(LogmarScoreLeft.score);
         TestSceneNavigation.EndTest();
         return;
     }

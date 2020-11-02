@@ -1258,7 +1258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &419522328
 Transform:
   m_ObjectHideFlags: 0
@@ -1614,7 +1614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &518020283
 Transform:
   m_ObjectHideFlags: 0
@@ -1649,7 +1649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &551376890
 Transform:
   m_ObjectHideFlags: 0
@@ -1766,7 +1766,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &577604534
 Transform:
   m_ObjectHideFlags: 0
@@ -2855,7 +2855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &803583404
 Transform:
   m_ObjectHideFlags: 0
@@ -2890,7 +2890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &804801492
 Transform:
   m_ObjectHideFlags: 0
@@ -4016,21 +4016,21 @@ MonoBehaviour:
   - {fileID: 1481640570}
   - {fileID: 2046314071}
   - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
-  - {fileID: 324854032}
+  - {fileID: 1565041537}
+  - {fileID: 2096469464}
+  - {fileID: 1895965459}
+  - {fileID: 1941019442}
+  - {fileID: 842847454}
+  - {fileID: 958207195}
+  - {fileID: 108049767}
+  - {fileID: 1600863200}
+  - {fileID: 703613365}
+  - {fileID: 151237708}
+  - {fileID: 668968475}
+  - {fileID: 1937062942}
+  - {fileID: 1336431261}
+  - {fileID: 1306531887}
+  - {fileID: 962141569}
   letterRows:
   - {fileID: 426715693}
   - {fileID: 301810376}
@@ -5000,7 +5000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1437114431
 Transform:
   m_ObjectHideFlags: 0
@@ -5117,7 +5117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1500059178
 Transform:
   m_ObjectHideFlags: 0
@@ -5403,7 +5403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1569414720
 Transform:
   m_ObjectHideFlags: 0
@@ -6226,7 +6226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1764502591
 Transform:
   m_ObjectHideFlags: 0
@@ -7918,6 +7918,10 @@ PrefabInstance:
     - target: {fileID: 11400020, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: usePerEyeCameras
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400020, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: disableEyeAnchorCameras
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11462408, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_Enabled

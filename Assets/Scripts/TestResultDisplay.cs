@@ -13,11 +13,11 @@ public class TestResultDisplay : MonoBehaviour
 
     void Start()
     {
-        scoreDisplayLeft.text = TestResultLeft.testResultLeft.ToString();
-        scoreDisplayRight.text = TestResultRight.testResultRight.ToString();
+        scoreDisplayLeft.text = LogmarScoreLeft.score.ToString();
+        scoreDisplayRight.text = LogmarScoreRight.score.ToString();
 
-        Debug.Log(LogmarScore.score);
+        Debug.Log(LogmarScoreLeft.score);
+        Debug.Log(LogmarScoreRight.score);
         TestResultExport.Save();
     }
-
 }
