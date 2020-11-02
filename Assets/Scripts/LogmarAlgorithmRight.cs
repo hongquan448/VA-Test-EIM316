@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LogmarScore : MonoBehaviour
+public class LogmarScoreRight : MonoBehaviour
 {
     public static double score;
 }
 
-public class LogmarAlgorithm : MonoBehaviour
+public class LogmarAlgorithmRight : MonoBehaviour
 {
     public const int TOTAL_LETTERS = 55;
     public const int LETTERS_PER_ROW = 5;
@@ -20,7 +20,7 @@ public class LogmarAlgorithm : MonoBehaviour
     public static readonly char[,] logmarChart = new char[TOTAL_LETTER_ROW_NUMBER,LETTERS_PER_ROW]
     {
         {'D', 'S', 'R', 'K', 'N'},
-        {'K', 'K', 'Z', 'O', 'H'},
+        {'C', 'K', 'Z', 'O', 'H'},
         {'O', 'N', 'R', 'K', 'D'},
         {'K', 'Z', 'V', 'D', 'C'},
         {'V', 'S', 'H', 'Z', 'O'},
@@ -280,8 +280,8 @@ public class LogmarAlgorithm : MonoBehaviour
     }
 
     public void endTest() {
-        LogmarScore.score = calculateScore(letterRow, totalErrors);
-        Debug.Log(LogmarScore.score);
+        LogmarScoreRight.score = calculateScore(letterRow, totalErrors);
+        Debug.Log(LogmarScoreRight.score);
         TestSceneNavigation.EndTest();
         return;
     }

@@ -8,16 +8,16 @@ using TMPro;
 public class TestResultDisplay : MonoBehaviour
 {
     // Start is called before the first frame update
-    public TMP_Text scoreDisplay;
-
+    public TMP_Text scoreDisplayLeft;
+    public TMP_Text scoreDisplayRight;
 
     void Start()
     {
-        string finalScore = LogmarScore.score.ToString();
-        scoreDisplay.text = finalScore;    
+        scoreDisplayLeft.text = TestResultLeft.testResultLeft.ToString();
+        scoreDisplayRight.text = TestResultRight.testResultRight.ToString();
+
         Debug.Log(LogmarScore.score);
         TestResultExport.Save();
     }
 
-    
 }
